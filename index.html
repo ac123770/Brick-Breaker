@@ -1,15 +1,13 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-    <meta charset="utf-8" /> 
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8" />
     <title>Gamedev Canvas Workshop</title> 
-    <style> 
-             
+    <style>
             canvas { background: #eee; } 
-    </style> 
-</head> 
-<body> 
-  
+      h1 {color: yellow;
+            background-color: black;}
+    </style>
+<h1> Brick Breaker</h1>
+</head><body>
 <canvas id="myCanvas" width="480" height="320"></canvas> 
   
 <script> 
@@ -82,7 +80,7 @@ function collisionDetection() {
           b.status = 0; 
           score++; 
           if(score == brickRowCount*brickColumnCount) { 
-            alert("YOU WIN, CONGRATS!"); 
+            alert("You won, congratulations!"); 
             document.location.reload(); 
           } 
         } 
@@ -94,14 +92,14 @@ function collisionDetection() {
 function drawBall() { 
   ctx.beginPath(); 
   ctx.arc(x, y, ballRadius, 0, Math.PI*2); 
-  ctx.fillStyle = "red"; 
+  ctx.fillStyle = "orange";
   ctx.fill(); 
   ctx.closePath(); 
 } 
 function drawPaddle() { 
   ctx.beginPath(); 
   ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight); 
-  ctx.fillStyle = "blue"; 
+  ctx.fillStyle = "purple";
   ctx.fill(); 
   ctx.closePath(); 
 } 
@@ -115,7 +113,7 @@ function drawBricks() {
         bricks[c][r].y = brickY; 
         ctx.beginPath(); 
         ctx.rect(brickX, brickY, brickWidth, brickHeight); 
-        ctx.fillStyle = "yellow"; 
+        ctx.fillStyle = "darkgreen"; 
         ctx.fill(); 
         ctx.closePath(); 
       } 
@@ -124,12 +122,12 @@ function drawBricks() {
 } 
 function drawScore() { 
   ctx.font = "20px Times new Roman"; 
-  ctx.fillStyle = "green"; 
+  ctx.fillStyle = "red";
   ctx.fillText("Score: "+score, 8, 20); 
 } 
 function drawLives() { 
   ctx.font = "20px Times New Roman"; 
-  ctx.fillStyle = "purple"; 
+  ctx.fillStyle = "darkblue";
   ctx.fillText("Lives: "+lives, canvas.width-65, 20); 
 } 
   
@@ -167,16 +165,12 @@ function draw() {
       } 
     } 
   } 
-  
-  if(rightPressed && paddleX < canvas.width-paddleWidth) { 
+if(rightPressed && paddleX < canvas.width-paddleWidth) { 
     paddleX += 7; 
   } 
   else if(leftPressed && paddleX > 0) { 
     paddleX -= 7; 
   } 
-  
-  x += dx; 
-  y += dy; 
+x += dx; y += dy; 
   requestAnimationFrame(draw); 
-} 
-  draw();</script></body>
+} draw();</script></body>
