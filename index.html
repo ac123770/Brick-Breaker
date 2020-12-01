@@ -3,10 +3,9 @@
     <title>Gamedev Canvas Workshop</title> 
     <style>
             canvas { background: #eee; } 
-      h1 {color: yellow;
-            background-color: black;}
+      h1 {color: yellow; background-color: black;}
     </style>
-<h1> Brick Breaker</h1>
+<h1> Brick Breaker Game</h1>
 </head><body>
 <canvas id="myCanvas" width="480" height="320"></canvas> 
   
@@ -24,15 +23,15 @@ var paddleWidth = 75;
 var paddleX = (canvas.width-paddleWidth)/2; 
 var rightPressed = false; 
 var leftPressed = false; 
-var brickRowCount = 4; 
-var brickColumnCount = 4; 
+var brickRowCount = 5; 
+var brickColumnCount = 5; 
 var brickWidth = 75; 
 var brickHeight = 20; 
 var brickPadding = 10; 
 var brickOffsetTop = 30; 
 var brickOffsetLeft = 30; 
 var score = 0; 
-var lives = 3; 
+var lives = 10; 
   
 var bricks = []; 
 for(var c=0; c<brickColumnCount; c++) { 
@@ -153,7 +152,7 @@ function draw() {
     else { 
       lives--; 
       if(!lives) { 
-        alert("GAME OVER"); 
+        alert("Game Over, You Lose"); 
         document.location.reload(); 
       } 
       else { 
